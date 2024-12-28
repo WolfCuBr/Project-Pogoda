@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Search History{% endblock %}
+
+{% block content %}
+    <h2>Search History</h2>
+    {% if searches %}
+        <ul class="history-list">
+            {% for search in searches %}
+                <li>
+                    <strong>{{ search.city }}</strong> - {{ search.temperature }}°C, {{ search.description }} 
+                    ({{ search.search_date|date:"Y-m-d H:i" }})
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No search history available.</p>
+    {% endif %}
+{% endblock %}
